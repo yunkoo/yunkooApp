@@ -8,7 +8,7 @@ app.config(function($routeProvider) {
             .when("/newslist", {
                 templateUrl: "content/newslist.html",
                 pageTitle:"新闻",
-                transition: "scale",
+                transition: "fall",
                 reverse: false
             })
             .when("/newsDetail/:aid", {
