@@ -41,7 +41,7 @@
                         </ul>
                     </div>
                 </div>
-                <button hm-tap="loadmore.act()" class="topcoat-icon-button--large--quiet loadmore">
+                <button ng-click="loadmore.act()" class="topcoat-icon-button--large--quiet loadmore">
                     <span class="icon-spin3" ng-class="{true:'animate-spin',false:''}[loadmore.isloading]"></span>{{loadmore.standbyText}}
                 </button>
 
@@ -61,7 +61,7 @@
                         </ul>
                     </div>
                 </div>
-                <button hm-tap="loadmore.act()" class="topcoat-icon-button--large--quiet loadmore">
+                <button ng-click="loadmore.act()" class="topcoat-icon-button--large--quiet loadmore">
                     <span class="icon-spin3" ng-class="{true:'animate-spin',false:''}[loadmore.isloading]"></span>{{loadmore.standbyText}}
                 </button>
             </div>

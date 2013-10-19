@@ -11,3 +11,7 @@ var APP_ACTION = {
 var isAndroid = (function(){
     return navigator.userAgent.indexOf("Android") > 0;
 })();
+
+var isTouchDevice=(function() {
+    return 'ontouchstart' in window
+})();

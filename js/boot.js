@@ -74,11 +74,22 @@ app.directive("navTo",['$navigate', function($navigate){
 
                 };
             };
-            if('onpointerup' in window){
-                element.bind("pointerup",tapAct);
+
+            if(attrs.eBind){
+                if(isTouchDevice){
+                    element.bind(attrs.eBind,tapAct);
+                }else{
+                    element.bind('click',tapAct);
+                }
             }else{
-                Hammer(element[0]).on("tap",tapAct);
+                if('onpointerup' in window){
+                    element.bind("pointerup",tapAct);
+                }else{
+                    Hammer(element[0]).on("tap",tapAct);
+                }
             }
+
+
 
 
         }
