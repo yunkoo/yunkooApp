@@ -151,6 +151,17 @@
 .theme2 .bg-gray .arrow1 {
     border-color: transparent transparent transparent #D1D1D1 !important;
 }
+
+
+.theme3 input:checked + .fixlistItem {color: #9B59B6;}
+.theme3 .fixlistItem:active {
+    color: #9B59B6;
+    background-color: #E8D1F2;
+    text-shadow: 0 1px #E8C4F7;
+}
+
+
+
 .theme5 input:checked + .fixlistItem {color: #D35400;}
 .theme5 .fixlistItem:active {
     color: #D35400;
