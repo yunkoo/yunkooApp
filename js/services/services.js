@@ -54,3 +54,35 @@ app.factory('newsList', ['$resource', function($resource) {
         {catId:1,pageNum:1,limit:6});
     return res;
 }]);
+
+
+
+
+app.factory('headerChanger', function($rootScope){
+    return {
+        send:function(o){
+            $rootScope.$broadcast("$headerChangeEvt",o);
+        }
+    };
+});
+
+
+app.factory('noticeInfo',function($rootScope,$timeout){
+    return {
+        show: function(o){
+            var noticeInfoOptions = {
+                message: "网络异常，请稍后重试",
+                hideDelay: "2000"
+            }
+            if(o && angular.isObject(o)){
+                angular.extend(noticeInfoOptions, o);
+            }
+            $rootScope.message = noticeInfoOptions.message;
+            $rootScope.showNoticeInfo = true;
+            $timeout(function(){
+                $rootScope.showNoticeInfo = false;
+            },noticeInfoOptions.hideDelay);
+
+        }
+    }
+});

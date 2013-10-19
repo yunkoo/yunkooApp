@@ -3,30 +3,42 @@ app.config(function($routeProvider) {
             .when("/about", {
                 templateUrl: "content/about.html",
                 pageTitle:"关于我们",
-                transition: "scale"
+                transition: "fade"
             })
             .when("/newslist", {
                 templateUrl: "content/newslist.html",
                 pageTitle:"新闻",
-                transition: "fall",
+                transition: "fade",
+                pageRole:'newslist',
                 reverse: false
             })
-            .when("/newsDetail/:aid", {
+            .when("/newsdetail/:aid", {
                 templateUrl: "content/newsDetail.html",
                 pageTitle:"新闻详情",
-                transition: "slide",
+                transition: "iOSlide",
+                pageRole:'newsDetail',
                 reverse: false
             })
             .when("/service", {
                 templateUrl: "content/service.html",
                 pageTitle:"服务项目",
-                transition: "scale"
+                transition: "fade"
             })
-            .when("/two", {
-                templateUrl: "content/page2.html",
-                pageTitle:"Page2",
-                pageRole:"nav1",
-                transition: "fall"
+            .when("/servicedetail/:aid", {
+                templateUrl: "content/serviceDetail.html",
+                pageTitle:"",
+                transition: "slide",
+                reverse: false
+            })
+            .when("/case", {
+                templateUrl: "content/case.html",
+                pageTitle:"成功案例",
+                transition: "fade"
+            })
+            .when("/jobs", {
+                templateUrl: "content/jobs.html",
+                pageTitle:"工作在云库",
+                transition: "fade"
             })
             .when("/popup", {
                 templateUrl: "content/popup.html",

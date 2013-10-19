@@ -9,7 +9,6 @@
     .contactus {
         background: #FFF;
         position: relative;
-        z-index: 9;
         border-radius: 0.3em;
         box-shadow: 0px 0px 2px #999;
     }
@@ -66,40 +65,40 @@
 <div class="content fixnavContent" >
     <div data-ng-switch="aboutIndex" class="about-frame">
         <div class="aboutContent" data-ng-switch-when="1">
-           <!--<div data-ng-bind-html="company_info"></div>-->
-            <!--{{company_info}}-->
+           <div data-ng-bind-html="company.company_info" style="line-height: 1.5;"></div>
+            <!--{{company.company_info}}-->
         </div>
 
         <div class="aboutContent" data-ng-switch-when="2">
             <div class="contactus">
                 <dl>
                     <dt class="company-name">苏州云库信息科技有限公司</dt>
-                    <dd class="company-logo"><img ng-src="{{IMAGE_ROOT+logo}}" /></dd>
+                    <dd class="company-logo"><img ng-src="{{IMAGE_ROOT+company.company_logo}}" /></dd>
                 </dl>
 
                 <dl>
                     <dt class="dtbg">联系电话</dt>
-                    <dd data-ng-repeat="tel in company_tel">{{tel}}</dd>
+                    <dd data-ng-repeat="tel in company.company_tel">{{tel}}</dd>
                 </dl>
 
                 <dl>
                     <dt class="dtbg">联系客服</dt>
-                    <dd data-ng-repeat="qq in company_qq">{{qq}}</dd>
+                    <dd data-ng-repeat="qq in company.company_qq">{{qq}}</dd>
                 </dl>
 
                 <dl>
                     <dt class="dtbg">联系邮箱</dt>
-                    <dd data-ng-repeat="email in company_email">{{email}}</dd>
+                    <dd data-ng-repeat="email in company.company_email">{{email}}</dd>
                 </dl>
 
                 <dl style="border:none;">
                     <dt class="dtbg">网址</dt>
-                    <dd data-ng-repeat="net in company_net">{{net}}</dd>
+                    <dd data-ng-repeat="net in company.company_net">{{net}}</dd>
                 </dl>
             </div>
 
         </div>
     </div>
 </div>
-
 </section>
+<ng-include src="'content/noticeInfo.html'"></ng-include>

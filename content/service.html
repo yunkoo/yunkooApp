@@ -41,7 +41,7 @@
     }
     .arrow2 {
         border-width: 15px;
-        border-color: transparent transparent transparent #A4A4A4;
+        border-color: transparent transparent transparent #2ECC71;
     }
     .arrow1, .arrow2 {
         border-style: dashed dashed dashed solid;
@@ -59,24 +59,14 @@
     <div class="content fixnavContent" id="serviceContent">
 
         <div class="topcoat-list">
-            <h3 class="topcoat-list__header">service items</h3>
+            <!--<h3 class="topcoat-list__header">Service</h3>-->
 
-            <ul class="topcoat-list__container servicelist">
-                <li class="topcoat-list__item" touchact="bg-gray">
+            <ul class="topcoat-list__container servicelist" data-ng-cloak>
+                <li data-ng-repeat="service in services" class="topcoat-list__item" touchact="bg-gray" nav-to="/servicedetail/{{service.aid}}">
                     <div class="servicePic">
-                        <img src="images/ios.png" alt="iOS软件开发" />
+                        <img ng-src="{{IMAGE_ROOT+service.picture}}" />
                     </div>
-                    <h3>iOS软件开发</h3>
-                    <div class="arrow">
-                        <div class="arrow1"></div>
-                        <div class="arrow2"></div>
-                    </div>
-                </li>
-                <li class="topcoat-list__item" touchact="bg-gray">
-                    <div class="servicePic">
-                        <img src="images/ios.png" alt="iOS软件开发" />
-                    </div>
-                    <h3>微信营销<img src="images/new.gif" /></h3>
+                    <h3>{{service.title}}</h3>
                     <div class="arrow">
                         <div class="arrow1"></div>
                         <div class="arrow2"></div>
@@ -87,5 +77,5 @@
 
     </div>
 </section>
-
+<ng-include src="'content/noticeInfo.html'"></ng-include>
 

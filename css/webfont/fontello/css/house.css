@@ -51,6 +51,7 @@
 
 .icon-spin1:before { content: '\e831'; } /* '' */
 .icon-doc-1:before { content: '\e82f'; } /* '' */
+.icon-share:before { content: '\e835'; } /* '' */
 .icon-search:before { content: '\e800'; } /* '' */
 .icon-mail:before { content: '\e805'; } /* '' */
 .icon-heart:before { content: '\e801'; } /* '' */
@@ -74,8 +75,8 @@
 .icon-home:before { content: '\e807'; } /* '' */
 .icon-link:before { content: '\e81b'; } /* '' */
 .icon-attach:before { content: '\e81c'; } /* '' */
+.icon-lock:before { content: '\e81d'; } /* '' */
 .icon-spin3:before { content: '\e832'; } /* '' */
-.icon-lock-alt:before { content: '\e81e'; } /* '' */
 .icon-lock-open:before { content: '\e81f'; } /* '' */
 .icon-lock-open-alt:before { content: '\e820'; } /* '' */
 .icon-download:before { content: '\e821'; } /* '' */
@@ -98,5 +99,7 @@
 .icon-group:before { content: '\e82c'; } /* '' */
 .icon-edit-alt:before { content: '\e82e'; } /* '' */
 .icon-rss:before { content: '\e82d'; } /* '' */
+.icon-backward:before { content: '\e833'; } /* '' */
+.icon-forward:before { content: '\e834'; } /* '' */
 .icon-key:before { content: '\e830'; } /* '' */
-.icon-lock:before { content: '\e81d'; } /* '' */
+.icon-lock-alt:before { content: '\e81e'; } /* '' */

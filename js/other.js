@@ -6,6 +6,10 @@
         }
         document.addEventListener("menubutton", toogleCollapse, false);
     }, false);
+
+    window.addEventListener('resize',function(e){
+        $('.content,.contentNoWebkitTouch').trigger('resize',e);
+    })
 })();
 
 app.run(function($route, $http, $templateCache) {

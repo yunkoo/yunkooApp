@@ -2,14 +2,14 @@ app.controller("headerCtrl",function($scope,$rootScope,$navigate){
 
 
 
-
+    var curPageRole=null;
     $rootScope.$on("$pageNaved",function(angularEvent,navHistory,curRoute,preRoute){
 
 
         if(!curRoute.$$route){
            return
         }
-        var curPageRole=null;
+
         curPageRole=curRoute.$$route['pageRole'];
 
 
@@ -24,15 +24,25 @@ app.controller("headerCtrl",function($scope,$rootScope,$navigate){
         }else{
             $scope.title.backTitle=null;
         }
-
-
-
-
     });
 
     $scope.historyBack=function(){
-        $navigate.back();
+       if(curPageRole=='newsDetail'){
+           $navigate.go('/newslist','iOSlide',true);
+       }else if(curPageRole=='newslist'){
+           $navigate.go('/','fade',true);
+       }else{
+           $navigate.back();
+       }
+
+
     }
+
+    $scope.$on("$headerChangeEvt",function(event,o){
+        if(o && o.pageTitle){
+            $scope.title.pageTitle = o.pageTitle;
+        }
+    });
 
 
 })

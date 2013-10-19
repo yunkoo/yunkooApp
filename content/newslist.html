@@ -12,7 +12,7 @@
      .loadmore{width: 100%}
 </style>
 
-<section class="theme1" data-ng-controller="newslistCtrl" id="about">
+<section class="theme1" data-ng-controller="newslistCtrl">
 
     <div class="topcoat-tab-bar full fixnav">
         <label class="topcoat-tab-bar__item">
@@ -34,9 +34,9 @@
                         <h3 class="topcoat-list__header" ng-bind="g.monthNote">载入中...</h3>
                         <ul class="topcoat-list__container">
                             <li touchact="highLight" ng-repeat="a in g.arr"
-                                nav-to="/newsDetail/{{a.aid}}"
+                                nav-to="/newsdetail/{{a.aid}}"
                                 class="topcoat-list__item newsItem">
-                                <h4 class="clearfix"><span ng-bind="a.title">载入标题...</span><time ng-bind="a.createtime">时间</time></h4>
+                                <h4 class="clearfix"><span ng-bind="a.title">载入标题...</span><time>[{{a.createtime}}]</time></h4>
                             </li>
                         </ul>
                     </div>
@@ -54,9 +54,9 @@
                         <h3 class="topcoat-list__header" ng-bind="g.monthNote">载入中...</h3>
                         <ul class="topcoat-list__container">
                             <li touchact="highLight" ng-repeat="a in g.arr"
-                                nav-to="/newsDetail/{{a.aid}}"
+                                nav-to="/newsdetail/{{a.aid}}"
                                 class="topcoat-list__item newsItem">
-                                <h4 class="clearfix"><span ng-bind="a.title">载入标题...</span><time ng-bind="a.createtime">时间</time></h4>
+                                <h4 class="clearfix"><span ng-bind="a.title">载入标题...</span><time>[{{a.createtime}}]</time></h4>
                             </li>
                         </ul>
                     </div>

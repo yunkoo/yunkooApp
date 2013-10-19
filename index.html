@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html ng-app="regou.anph">
+<html ng-app="guoqing2013.yunkooApp">
 <head>
     <meta charset="utf-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="target-densitydpi=medium-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>云库科技</title>
 
+    <link rel="apple-touch-icon-precomposed" href="icon152x152.png"/>
+    <link rel="icon" type="image/png" href="icon-trans.png"/>
 
 
     <script src="libs/jquery.js"></script>
@@ -13,6 +15,7 @@
     <script src="libs/angular/angular-route.min.js"></script>
     <script src="libs/angular/angular-animate.min.js"></script>
     <script src="libs/angular/angular-resource.min.js"></script>
+    <script src="libs/angular/angular-sanitize.min.js"></script>
     <script src="libs/gestures.min.js"></script>
 
 
@@ -42,8 +45,11 @@
             <span class="headericon icon-left-bold"></span>
         </a>
     </div>
-    <div class="topcoat-navigation-bar__item center half">
-        <h1 class="topcoat-navigation-bar__title">{{title.pageTitle}}</h1>
+    <div nav-to="/" ani="-fade" class="topcoat-navigation-bar__item center half">
+    <h1 class="topcoat-navigation-bar__title" data-ng-cloak>
+        <span ng-if="loading"><span class="icon-spin1 animate-spin"></span></span>
+        {{title.pageTitle}}
+    </h1>
     </div>
     <!--<div class="topcoat-navigation-bar__item right quarter">-->
         <!--<a class="topcoat-icon-button--quiet v-center">-->
@@ -67,13 +73,17 @@
 <script src="js/services/services.js"></script>
 
 
-<script src="js/controllers/homeCtrl.js"></script>
 <script src="js/controllers/headerCtrl.js"></script>
 
 <script defer src="js/controllers/newslistCtrl.js"></script>
 <script defer src="js/controllers/newsDetailCtrl.js"></script>
 <script defer src="js/controllers/serviceCtrl.js"></script>
+<script defer src="js/controllers/serviceDetailCtrl.js"></script>
+<script defer src="js/controllers/caseCtrl.js"></script>
 <script defer src="js/controllers/backwardsCtrl.js"></script>
 <script defer src="js/controllers/aboutCtrl.js"></script>
+<script defer src="js/controllers/jobsCtrl.js"></script>
 <script defer src="js/other.js"></script>
+
 <script type="text/javascript" src="phonegap.js"></script>
+</html>

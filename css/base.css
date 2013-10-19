@@ -1,19 +1,19 @@
-.home-icon {
-    background: url("../images/home.svg") no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-}
+/*.home-icon {*/
+    /*background: url("../images/home.svg") no-repeat;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*background-size: cover;*/
+/*}*/
 .headericon{
     font-size: 1.5rem;
 }
 
-.settings-icon {
-    background: url("../images/settings.svg") no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-}
+/*.settings-icon {*/
+    /*background: url("../images/settings.svg") no-repeat;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*background-size: cover;*/
+/*}*/
 .v-center{
     vertical-align: middle;
 }
@@ -35,14 +35,19 @@
     position: relative;
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     cursor: pointer;
+    border: none;padding: 0;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    appearance:none;
+    display: block;
 }
 #c1{background-color: #16a085;}
 #c2{background-color: #2ecc71;}
-#c3{background-color: #3498db;}
-#c4{background-color: #9b59b6;}
+#c3{background-color: #9b59b6;}
+#c4{background-color: #3498db;}
 #c5{background-color:#d35400;}
 
-.carditemInner{position:absolute;left: 50%;top: 50%;}
+.carditemInner{position:relative;display: inline-block;}
 
 .cardIcon{max-height: 40%;display: inline-block;}
 .cardTitle{color:white;display: block;position: absolute;}
@@ -88,6 +93,46 @@
 }
 /*固定导航结束*/
 
+/*footer*/
+.footerInner{
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    -moz-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-flow: row nowrap;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-flex-pack:justify;
+    -ms-justify-content:center;
+    justify-content:center;
+
+    -webkit-box-orient:horizontal;
+    box-orient:horizontal;
+
+}
+.footerInner .footerTab{
+    cursor: pointer;
+    -webkit-box-flex: 1;
+
+    -webkit-flex: 1 auto;
+    -moz-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    text-align: center;
+    -webkit-align-items:stretch;
+    align-items:stretch;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: rgba(255, 252, 186, 0.48);
+}
+/*footer结束*/
+
+
 
 /*五个主题*/
 .theme1 input:checked + .fixlistItem {color: #16a085;}
@@ -99,7 +144,6 @@
 .theme1 .highLight{background: rgba(183,232,224,0.75);}
 .theme1 .icon-spin3{color: #16a085;}
 .theme1 .fixnavContent{padding-top: 2.5rem;}
-
 
 .theme2 .bg-gray {
     background: #D1D1D1;
@@ -114,3 +158,26 @@
     text-shadow: 0 1px #F2D400;
 }
 /*五色主题结束*/
+
+/*提示信息*/
+#noticeInfo {
+    padding: 15px;
+    margin-left: -115px;
+    width: 180px;
+    filter: Alpha(Opacity=95);
+    opacity: .95;
+    height: auto;
+    margin-top: -43px;
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background: #222;
+}
+
+#noticeInfo p {
+    color: #E7E7E7;
+    font-size:0.95em;
+    text-align: center;
+    font-weight: 600;
+}

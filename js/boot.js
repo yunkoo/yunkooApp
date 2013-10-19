@@ -1,5 +1,5 @@
 /*启动angular*/
-var app=angular.module('regou.anph', ['ngRoute','ngAnimate','ngResource','ngStorage','ajoslin.mobile-navigate','angular-gestures']);
+var app=angular.module('guoqing2013.yunkooApp', ['ngRoute','ngAnimate','ngResource','ngStorage','ngSanitize','ajoslin.mobile-navigate','angular-gestures']);
 
 
 app.config(function($httpProvider) {
@@ -11,6 +11,44 @@ app.config(function($httpProvider) {
 
 app.controller('MainCtrl', function($scope, $navigate) {
     $scope.$navigate = $navigate;
+
+    var timmer={
+        delay:2900,
+        date:null,
+        timeoutId:null
+    };
+
+    var act={
+        open: function (delay) {
+            if(typeof(delay)!=='undefined'){
+                timmer.delay=delay;
+            }
+
+            timmer.date=new Date();
+            if(timmer.timeoutId){clearTimeout(timmer.timeoutId);}
+
+            timmer.timeoutId=setTimeout(function(){
+                    $scope.$apply(function(){$scope.loading = true;});
+            },timmer.delay);
+        },
+        close: function () {
+
+              if(timmer.timeoutId){
+                  var cDate=new Date();
+                  if(timmer.date && (cDate-timmer.date)<=timmer.delay && timmer.timeoutId){
+                      clearTimeout(timmer.timeoutId);
+                  }
+                  $scope.loading = false;
+              }
+
+            timmer.timeoutId=null;
+        }
+    };
+
+
+    $scope.$on('LOAD', function() {act.open();}
+    );
+    $scope.$on('UNLOAD', function() {act.close();});
 })
 
 /*导航动画
@@ -36,8 +74,8 @@ app.directive("navTo",['$navigate', function($navigate){
 
                 };
             };
-            if(window.navigator.msPointerEnabled){
-                element.bind("MSPointerUp",tapAct);
+            if('onpointerup' in window){
+                element.bind("pointerup",tapAct);
             }else{
                 Hammer(element[0]).on("tap",tapAct);
             }
@@ -52,15 +90,15 @@ app.directive("touchact",function(){
     return {
         restrict: 'A',
         link: function (scope,element,attrs) {
+            if(!('add' in document.body.classList)){return;}
             var classname=attrs['touchact'] || 'navfocus';
             element.bind("touchstart",function(){
                 var cl=this.classList;
-                try{cl.add(classname);
+                cl.add(classname);
                 setTimeout(function(){cl.remove(classname)},300);
-                }catch(e){}
             });
             element.bind("touchend",function(){
-                try{this.classList.remove(classname);}catch(e){}
+                this.classList.remove(classname);
             })
         }
     }
