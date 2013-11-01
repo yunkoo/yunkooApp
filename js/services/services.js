@@ -1,4 +1,4 @@
-app.factory('AJAX', function($http,$q){
+app.factory('AJAX', ['$http','$q',function($http,$q){
     /*url p bCall sCall eCall*/
     var send=function(o){
 
@@ -47,7 +47,7 @@ app.factory('AJAX', function($http,$q){
         return canceler;
     };
     return send;
-});
+}]);
 
 app.factory('newsList', ['$resource', function($resource) {
     var res = $resource(APP_ACTION['NEWSLIST']+':catId/:pageNum/:limit',
@@ -58,16 +58,16 @@ app.factory('newsList', ['$resource', function($resource) {
 
 
 
-app.factory('headerChanger', function($rootScope){
+app.factory('headerChanger',['$rootScope',function($rootScope){
     return {
         send:function(o){
             $rootScope.$broadcast("$headerChangeEvt",o);
         }
     };
-});
+}]);
 
 
-app.factory('noticeInfo',function($rootScope,$timeout){
+app.factory('noticeInfo',['$rootScope','$timeout',function($rootScope,$timeout){
     return {
         show: function(o){
             var noticeInfoOptions = {
@@ -85,4 +85,4 @@ app.factory('noticeInfo',function($rootScope,$timeout){
 
         }
     }
-});
+}]);

@@ -1,8 +1,11 @@
-app.controller("headerCtrl",function($scope,$rootScope,$navigate){
+app.controller("headerCtrl",['$scope','$rootScope','$navigate',function($scope,$rootScope,$navigate){
 
 
 
     var curPageRole=null;
+
+    var leftcard=$('.leftcard');
+
     $rootScope.$on("$pageNaved",function(angularEvent,navHistory,curRoute,preRoute){
 
 
@@ -16,7 +19,11 @@ app.controller("headerCtrl",function($scope,$rootScope,$navigate){
         $scope.title.pageTitle=curRoute.$$route['pageTitle'];
         if(curPageRole=="main"){
             navHistory=$navigate.eraseHistory('page',curRoute);
+        }else{
+            leftcard.removeClass('cur');
+            leftcard.filter('.leftBtn_'+curPageRole).addClass('cur');
         }
+
         var l=navHistory.length;
         var pre=navHistory[l-2];
         if(pre){
@@ -45,4 +52,4 @@ app.controller("headerCtrl",function($scope,$rootScope,$navigate){
     });
 
 
-})
+}]);

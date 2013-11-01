@@ -5,8 +5,11 @@ var APP_ACTION = {
     'ABOUTUS'               :SERVER+'/app_company/aboutus/' ,                //关于我们
     'SERVICE'               :SERVER+'/app_article/service/',                 //服务项目列表
     'SERVICE_DETAIL'        :SERVER+'/app_article/service_detail/',          //服务项目详情
-    'JOB'                   :SERVER+'/app_job/job'                     //招贤纳士列表
-}
+    'JOB'                   :SERVER+'/app_job/job',                     //招贤纳士列表
+    'CASE'                  :SERVER+'/app_product_category/get',    //成功案例
+    'CASELIST'              :SERVER+'/app_product/getByCategory/',   //案例列表
+    'CASEIMG'               :SERVER+'/product_img/all_img/'          //成功案例图片
+};
 
 var isAndroid = (function(){
     return navigator.userAgent.indexOf("Android") > 0;

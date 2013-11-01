@@ -1,4 +1,4 @@
-app.controller("aboutCtrl",function($scope,AJAX,$resource,noticeInfo){
+app.controller("aboutCtrl",['$scope','AJAX','$resource','noticeInfo',function($scope,AJAX,$resource,noticeInfo){
     $scope.company = {}
     $scope.IMAGE_ROOT = IMAGE_ROOT;
     var actions =  {
@@ -21,4 +21,4 @@ app.controller("aboutCtrl",function($scope,AJAX,$resource,noticeInfo){
         noticeInfo.show();
         $scope.$emit('UNLOAD');
     });
-})
+}]);

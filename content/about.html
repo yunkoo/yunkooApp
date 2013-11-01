@@ -53,12 +53,12 @@
 
 <div class="topcoat-tab-bar full fixnav" ng-init="aboutIndex='1'">
     <label class="topcoat-tab-bar__item">
-        <input type="radio" name="topcoat" checked="checked">
-        <button hm-tap="aboutIndex='1'" class="topcoat-tab-bar__button full fixlistItem">公司简介</button>
+        <input type="radio" data-ng-model="aboutIndex" value="1" name="topcoat" checked="checked">
+        <button class="topcoat-tab-bar__button full fixlistItem">公司简介</button>
     </label>
     <label class="topcoat-tab-bar__item">
-        <input type="radio" name="topcoat">
-        <button hm-tap="aboutIndex='2'" class="topcoat-tab-bar__button full fixlistItem">联系我们</button>
+        <input type="radio" data-ng-model="aboutIndex" value="2" name="topcoat">
+        <button class="topcoat-tab-bar__button full fixlistItem">联系我们</button>
     </label>
 </div>
 

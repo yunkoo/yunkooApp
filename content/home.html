@@ -1,12 +1,12 @@
 <style>
     header{z-index: 0;}
+    #leftWrap{display: none;}
+    #rightWrap{left: 0;right: 0;}
 </style>
 <section id="homeContent" class="content">
 
-    <style id="fixRot"></style>
-
     <div id="cardWrap">
-        <button nav-to="/newslist" eBind="touchend" id="c1" class="cardItem" touchact="opa5">
+        <button nav-to="/newslist" ebind="touchend" id="c1" class="cardItem" touchact="opa5">
             <div class="carditemInner titleLeft">
                 <h2 class="cardTitle">公司动态</h2>
                 <img class="cardIcon" src="images/home/home_1.png"/>
@@ -14,26 +14,26 @@
             </div>
 
         </button>
-        <button nav-to="/service" eBind="touchend" id="c2" class="cardItem" touchact="opa5">
+        <button nav-to="/service" ebind="touchend" id="c2" class="cardItem" touchact="opa5">
             <div class="carditemInner titleLeft">
                 <h2 class="cardTitle">服务项目</h2>
                 <img class="cardIcon" src="images/home/home_2.png"/>
             </div>
 
         </button>
-        <button nav-to="/case" eBind="touchend" id="c3" class="cardItem" touchact="opa5">
+        <button nav-to="/case" ebind="touchend" id="c3" class="cardItem" touchact="opa5">
             <div class="carditemInner titleRight">
                 <h2 class="cardTitle">成功案例</h2>
                 <img class="cardIcon" src="images/home/home_3.png"/>
             </div>
         </button>
-        <button nav-to="/jobs" eBind="touchend" id="c4" class="cardItem" touchact="opa5">
+        <button nav-to="/jobs" ebind="touchend" id="c4" class="cardItem" touchact="opa5">
             <div class="carditemInner titleRight">
                 <h2 class="cardTitle">招贤纳士</h2>
                 <img class="cardIcon" src="images/home/home_4.png"/>
             </div>
         </button>
-        <button nav-to="/about" eBind="touchend" id="c5" class="cardItem" touchact="opa5">
+        <button nav-to="/about" ebind="touchend" id="c5" class="cardItem" touchact="opa5">
             <div class="carditemInner titleRight">
                 <h2 class="cardTitle">关于我们</h2>
                 <img class="cardIcon" src="images/home/home_5.png"/>
@@ -43,44 +43,9 @@
 </section>
 
 <script>
-    (function(){
-        var content=$('#homeContent');
-        var setDeg=function(){
-            var wrap=$('#cardWrap');
-            var TRANSFORM="webkitTransform" in document.documentElement.style ? "webkitTransform" : "transform";
-            var width=content[0].offsetWidth;
-            var height=content[0].offsetHeight;
-            var rotationVal=Math.atan(width/height);
-
-            var newDeg=rotationVal/0.017453293;
-
-            var c=width/Math.sin(rotationVal);
-            var nagMar=(c/2)*-1;
-            var cssObj={
-                'height':c+'px',
-                'width':c+'px',
-                'marginLeft':nagMar+'px',
-                'marginTop':nagMar+'px',
-                'top':'50%',
-                'left':'50%'
-            };
-            cssObj[TRANSFORM]='rotate('+newDeg+'deg)';
-            wrap.css(cssObj);
-            var roStringGen=function(cssrole,deg){
-                var cssString=cssrole+'{-webkit-transform:'+'rotate('+deg+'deg)'+'}';
-                cssString+=cssrole+'{transform:'+'rotate('+deg+'deg)'+'}';
-                return cssString;
-            };
-            var iconmaxHeight='';
-            if(TRANSFORM!='webkitTransform'){
-                /*Fix none webkit browsers*/
-                iconmaxHeight='.cardIcon{max-height:'+c/5*0.4+'px}';
-            }
-            var fixRotString = roStringGen('.cardIcon',newDeg*-1)+roStringGen('.cardTitle',newDeg*-1)+iconmaxHeight;
-            $('#fixRot').html(fixRotString);
-
-        };
-        content.on('resize',setDeg);
-        setDeg();
-    }());
+//    if(isTouchDevice){
+//        $('#homeContent button').on('click',function(e){
+//            e.preventDefault();
+//        });
+//    }
 </script>

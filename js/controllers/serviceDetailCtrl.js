@@ -1,4 +1,4 @@
-app.controller("serviceDetailCtrl",function($scope,AJAX,$routeParams,headerChanger,noticeInfo){
+app.controller("serviceDetailCtrl",['$scope','AJAX','$routeParams','headerChanger','noticeInfo',function($scope,AJAX,$routeParams,headerChanger,noticeInfo){
     var aid = $routeParams.aid;
     $scope.IMAGE_ROOT = IMAGE_ROOT;
     var ajax1 = AJAX({
@@ -23,8 +23,8 @@ app.controller("serviceDetailCtrl",function($scope,AJAX,$routeParams,headerChang
     });
 
     $scope.$on('$destroy',function(){
-        ajax1.resolve();
+        if(ajax1){ajax1.resolve();}
     });
 
 
-})
+}]);

@@ -2,18 +2,18 @@
 var app=angular.module('guoqing2013.yunkooApp', ['ngRoute','ngAnimate','ngResource','ngStorage','ngSanitize','ajoslin.mobile-navigate','hmTouchEvents']);
 
 
-app.config(function($httpProvider) {
+app.config(['$httpProvider',function($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
     // Use x-www-form-urlencoded Content-Type
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
-});
+}]);
 
-app.controller('MainCtrl', function($scope, $navigate) {
+app.controller('MainCtrl', ['$scope', '$navigate',function($scope, $navigate) {
     $scope.$navigate = $navigate;
 
     var timmer={
-        delay:2900,
+        delay:1800,
         date:null,
         timeoutId:null
     };
@@ -49,7 +49,7 @@ app.controller('MainCtrl', function($scope, $navigate) {
     $scope.$on('LOAD', function() {act.open();}
     );
     $scope.$on('UNLOAD', function() {act.close();});
-})
+}]);
 
 /*导航动画
 * 用法：添加"nav-to"属性 "ani"属性（动画）ani属性值前加符号为反向
@@ -75,15 +75,16 @@ app.directive("navTo",['$navigate', function($navigate){
                 };
             };
 
-            if(attrs.eBind){
+            if(attrs['ebind']){
                 if(isTouchDevice){
-                    element.bind(attrs.eBind,tapAct);
+                    element.bind(attrs['ebind'],tapAct);
                 }else{
                     element.bind('click',tapAct);
                 }
+
             }else{
-                if('onpointerup' in window){
-                    element.bind("pointerup",tapAct);
+                if(window.navigator.msPointerEnabled){
+                    element.bind("click",tapAct);
                 }else{
                     Hammer(element[0]).on("tap",tapAct);
                 }
